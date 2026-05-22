@@ -1,14 +1,14 @@
-//const text = document.getElementById("colorText");
-//const color = document.getElementById("colorPicker");
+/*const text = document.getElementById("colorText");
+const color = document.getElementById("colorPicker");*/
 
 const text = document.querySelector("#colorText");
 const color = document.querySelector("#colorPicker");
 
-text.textContent = `カラーコード： ${color.value}`;
 
-const colorBg = () => {
 
-    document.body.style.backgroundColor = color.value;
+/*
+function colorBg(){
+     document.body.style.backgroundColor = color.value;
 
     if (color.value === "#FFFFFF"){
         text.content = `カラーコード：${color.value} (white)`
@@ -17,6 +17,13 @@ const colorBg = () => {
     } else {
          text.content = `カラーコード：${color.value}`
     }
+}
+*/
+const colorBg = () => {
+
+    document.body.style.backgroundColor = color.value;
+
+    text.textContent = `カラーコード： ${color.value}`;
 }
 
 color.addEventListener("input", colorBg)
