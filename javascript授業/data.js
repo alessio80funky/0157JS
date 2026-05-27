@@ -14,7 +14,7 @@
 cle
 */
 //整数と少数どちらもnumber型
-/*
+
 let num = 10; //number型
 let num = 0.5;//number型
 
@@ -32,7 +32,7 @@ let boolean2 = false;//boolean型
 let name = null;//特殊型
 let surname = undefined;//特殊型
 
-*/
+
 /*
 
 参照型
