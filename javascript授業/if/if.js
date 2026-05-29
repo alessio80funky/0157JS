@@ -45,12 +45,12 @@ if (age >= 18){
 }
 
 if (age >= 18 && isMember){
-    console.log("会員です(18歳以上の会員です。)")
+    console.log("会員です(18歳以上の会員です。)");
 } else if (age >= 18 && !isMember){
-     console.log("会員じゃないです。登録してください")
+     console.log("会員じゃないです。登録してください");
 }else{
       console.log("未成年登録できません");
-}
+};
 
 
 ///波括弧を省略しない！
