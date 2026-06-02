@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>練習用ホームページ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <h1 class="logo">My Homepage</h1>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="#about">私たちについて</a></li>
+        <li><a href="#service">サービス</a></li>
+        <li><a href="#news">お知らせ</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- メインビジュアル -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>はじめてのホームページ制作</h2>
+      <p>HTMLとCSSを使って、基本的なページを作ってみましょう。</p>
+      <a href="#contact" class="btn">お問い合わせ</a>
+    </div>
+  </section>
+
+  <!-- 私たちについて -->
+  <section id="about" class="section">
+    <h2>私たちについて</h2>
+    <p>
+      ここには会社やサービスの紹介文を入れます。
+      練習では、自分のプロフィールや架空の会社紹介を書いても大丈夫です。
+    </p>
+  </section>
+
+  <!-- サービス -->
+  <section id="service" class="section">
+    <h2>サービス</h2>
+
+    <div class="card-area">
+      <div class="card">
+        <h3>サービス1</h3>
+        <p>サービスの説明文をここに入れます。</p>
+      </div>
+
+      <div class="card">
+        <h3>サービス2</h3>
+        <p>サービスの説明文をここに入れます。</p>
+      </div>
+
+      <div class="card">
+        <h3>サービス3</h3>
+        <p>サービスの説明文をここに入れます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- お知らせ -->
+  <section id="news" class="section">
+    <h2>お知らせ</h2>
+
+    <ul class="news-list">
+      <li>2026年6月2日　ホームページを公開しました。</li>
+      <li>2026年6月1日　新サービスを開始しました。</li>
+      <li>2026年5月25日　お知らせのサンプルです。</li>
+    </ul>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section id="contact" class="section contact">
+    <h2>お問い合わせ</h2>
+    <p>ご質問がある方は、下記フォームからお問い合わせください。</p>
+
+    <form>
+      <input type="text" placeholder="お名前">
+      <input type="email" placeholder="メールアドレス">
+      <textarea placeholder="お問い合わせ内容"></textarea>
+      <button type="submit">送信</button>
+    </form>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <p>&copy; 2026 My Homepage. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
