@@ -1,0 +1,19 @@
+    body{
+            font-family: sans-serif;
+            max-width: 400px; 
+            margin: 20px;
+            padding: 12px;
+        }
+
+        button{
+            padding: 10px;
+            font-size: medium;
+            width: 100%;
+        }
+
+        pre{
+            background: black;
+            color: aliceblue;
+            padding: 10px;
+            border: 5px;
+        }

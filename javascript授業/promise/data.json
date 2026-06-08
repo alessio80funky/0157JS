@@ -1,0 +1,14 @@
+[
+{
+    "name":"mario",
+     "age": "42"
+},
+   {
+    "name":"luigi", 
+    "age": "38" 
+},
+   {
+    "name":"koopa", 
+    "age": "100"
+}
+]

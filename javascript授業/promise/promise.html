@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            font-family: sans-serif;
+            max-width: 400px; 
+            margin: 20px;
+            padding: 12px;
+        }
+
+        button{
+            padding: 10px;
+            font-size: medium;
+            width: 100%;
+        }
+
+        pre{
+            background: black;
+            color: aliceblue;
+            padding: 10px;
+            border: 5px;
+        }
+    </style>
+    <title>非同期処理</title>
+</head>
+<body>
+
+    <h1>非同期処理</h1>
+    <p>外部のuser.jsonを読み込んで表示する</p>
+
+    <button id="thenBtn">.then()</button>
+     <button id="AsyncBtn">Async</button>
+
+    <pre id="log"></pre>
+
+    <script>
+
+        //then
+
+        const thenBtn = document.getElementById("thenBtn")
+        const pre = (msg) => {
+            document.getElementById("log").textContent += msg + "\n";
+        }
+
+        document.getElementById("thenBtn").addEventListener("click", ()=> {
+
+            fetch("./data.json")
+            .then(res => {
+                return res.json()
+            })
+            .then(data => {
+                pre("データの読み込み成功")
+                data.forEach(( user => pre(`USER NAME: ${user.name},${user.age}`)));
+            })
+            .catch(err => {
+                pre("err:データを読み込みませんでした")
+            })
+        })
+
+        //Async
+
+        document.getElementById("AsyncBtn").addEventListener("click" , async ()=>{
+            pre("読み込み中");
+
+            try{
+                const res = await fetch("./data.json");
+                const data = await res.json();
+                pre("データの読み込み成功")
+                for(const user of data){
+                     pre(`USER NAME: ${user.name},${user.age}`)
+                } //forEachでもオッケー
+                    
+            }catch(err){
+                      pre("err:データを読み込みませんでした")
+            }
+
+        })
+
+    </script>
+    
+</body>
+</html>
