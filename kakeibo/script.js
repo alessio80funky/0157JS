@@ -19,6 +19,8 @@ const ChartTotal = document.getElementById("Chart")
 function init(){
  trnForm.addEventListener("submit" , Submit)
 
+createChart();
+
 loadTransactions();
  
 updateUi();
@@ -83,6 +85,7 @@ function deleteTransaction(id){
 function updateUi(){
 updateTransactionList();
 updateSummary();
+updateChart();
 }
 
 function updateTransactionList(){
@@ -189,12 +192,11 @@ function updateSummary(){
 
 
 function createChart (){
-   ChartSummary = new Chart(ChartTotal , {
+   ChartInput = new Chart(ChartTotal , {
      type: 'bar',
     data: {
       labels: ["収入","収支","合計"],
       datasets: [{
-        label: '金額',
         data: [0,0,0],
         backgroundColor:[
             "red",
@@ -208,7 +210,7 @@ function createChart (){
         responsive:true,
         plugins:{
             legend:{
-                display:true
+                display:false
             }
         },
       scales: {
@@ -218,5 +220,24 @@ function createChart (){
       }
     }
    })
+}
+
+
+function updateChart(){
+  const income  = transactions
+    .filter(t => t.typeSelect === 'income')
+    .reduce((sum , t) => sum + t.amountInput, 0)
+  const expense =  transactions
+    .filter(t => t.typeSelect === 'expense')
+    .reduce((sum , t) => sum + t.amountInput, 0)
+  const balance = income - expense;
+
+  ChartInput.data.datasets[0].data = [
+    income,
+    expense,
+    balance
+  ]
+
+ ChartInput.update();
 }
 
