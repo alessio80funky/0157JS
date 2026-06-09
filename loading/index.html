@@ -8,11 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-<!--
+
     <div id="loading">
          <img class="spinner" src="https://assets.codepen.io/85188/loading.png" alt="">
     </div>
--->
+
     <div class="gallery">
         <div class="item">
           <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="photo1">
@@ -27,6 +27,12 @@
     </div>
 
     <script>
+
+        const loading = document.querySelector('#loading');
+
+        window.addEventListener("load", () =>{
+            loading.classList.add('loaded')
+        })
 
     </script>
 </body>
