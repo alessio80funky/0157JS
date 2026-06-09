@@ -1,6 +1,10 @@
 
 
+const STORAGE_KEY = "kakeibo_transactions";
+
 let transactions = [];
+
+let ChartInput;
 
 const ttlInc = document.getElementById("totalIncome");
 const ttlExp = document.getElementById("totalExpense");
@@ -10,14 +14,31 @@ const trnList = document.getElementById("transactionList");
 const des = document.getElementById("description");
 const amount = document.getElementById("amount");
 const type = document.getElementById("type");
+const ChartTotal = document.getElementById("Chart")
 
 function init(){
  trnForm.addEventListener("submit" , Submit)
+
+loadTransactions();
  
-updateUi()
+updateUi();
 }
 
 init();
+
+
+function loadTransactions(){
+    const stored = localStorage.getItem(STORAGE_KEY);
+
+    if(stored){
+        transactions = JSON.parse(stored);
+    }
+}
+
+
+function saveTransactions(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions))
+}
 
 
 function Submit(e){
@@ -45,6 +66,7 @@ transactions.unshift(transaction)
 
 
 trnForm.reset();
+saveTransactions()
 updateUi()
 
 }
@@ -52,6 +74,7 @@ updateUi()
 function deleteTransaction(id){
 
     transactions = transactions.filter(t =>t.id !== id );
+    saveTransactions()
     updateUi()
 
 }
@@ -163,3 +186,37 @@ function updateSummary(){
      }
 
 }
+
+
+function createChart (){
+   ChartSummary = new Chart(ChartTotal , {
+     type: 'bar',
+    data: {
+      labels: ["収入","収支","合計"],
+      datasets: [{
+        label: '金額',
+        data: [0,0,0],
+        backgroundColor:[
+            "red",
+            "green",
+            "blue"
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+        responsive:true,
+        plugins:{
+            legend:{
+                display:true
+            }
+        },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+   })
+}
+

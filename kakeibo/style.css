@@ -207,3 +207,22 @@ input:focus, select:focus {
         font-size: 1.5em;
     }
 }
+
+
+.chart-area{
+    margin-top: 30px;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chart-area h1{
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+
+#Chart{
+    max-height: 300px ;
+}
